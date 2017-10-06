@@ -57,7 +57,7 @@ public class GradesCalculator {
 		}
 
 		
-	    // set variable for failed student
+	        // set variable for failed student
 		byte studentfailed = sumStudent[0];
 		
 		// set variable for min Grades 
