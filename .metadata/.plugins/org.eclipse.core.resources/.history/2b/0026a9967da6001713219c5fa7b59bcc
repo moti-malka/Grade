@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class taxbracket
+{
+   public static void main(String[] args) {
+   
+    
+	// Get Salary From User    
+	Scanner inputfromuser = new Scanner(System.in);
+	System.out.print("Enter Salary: ");   
+	int salary = inputfromuser.nextInt();
+
+	int taxbracket1 = 23000;
+	int taxbracket2 = 46000;
+	int taxbracket3 = 120000;
+	int taxbracket4 = 220000;
+	
+	// Check If Salary Big or Equal To Tax bracket 1  
+	
+	// 0-23
+	if (salary <= taxbracket1)
+	{
+		int taxpayable = salary * 10 / 100;
+		
+		System.out.print(taxpayable);
+	}
+	
+	// 23-46
+	else if (salary <= taxbracket2)
+	{
+		int Temp = salary - taxbracket1;
+		int TaxToPay = Temp * 20/100 + 2300;
+		System.out.print(TaxToPay);
+	}
+    
+	//46-120000
+	else if (salary <= taxbracket3)
+	{
+		int temp1 = salary - taxbracket2;
+		int TaxToPay = temp1 * 30/100 + 6900;
+		System.out.println(TaxToPay);
+	}
+	
+	//120000-220000
+	else if (salary <= taxbracket4)
+	{
+		System.out.println("moti");
+		int Temp = salary - taxbracket3;
+		int TaxToPay = Temp * 40/100 + 29100;
+		System.out.println(TaxToPay);
+	}
+	//220000-n
+	else if (salary > taxbracket4)
+	{
+		int Temp = salary - taxbracket4;
+		int TaxToPay = Temp *50/100 + 69100;
+		System.out.println(TaxToPay);
+	}
+	
+	else
+	{
+		System.out.println("yuor salary = -/0");
+	}
+	inputfromuser.close();
+  }
+
+}

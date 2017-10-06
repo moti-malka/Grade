@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class GradesCalculator {
+
+	public static void main(String[] args) {
+		// set Scanner for get input from user
+		Scanner inputFromUser = new Scanner(System.in);
+
+		// ask user for numbers of students
+		System.out.print("Enter the number of students: ");
+
+		byte allStudents = inputFromUser.nextByte();
+
+		byte[] sumStudent = new byte[allStudents];
+		byte Location = 1;
+		for (byte i = 0; i < sumStudent.length; i++) {
+
+			System.out.print("Enter Grades for student #" + Location++ + ": ");
+
+			byte Grades = inputFromUser.nextByte();
+
+			if (Grades < 0 || Grades > 100) {
+				System.out.print("Error: Enter a range of numbers between 0-100\n");
+				i--;
+				Location--;
+			} else {
+				sumStudent[i] = Grades;
+
+			}
+
+		}
+
+		byte Outstandingstudent = sumStudent[0];
+		byte topGrades = sumStudent[0];
+
+		for (byte i = 0; i < sumStudent.length; i++) {
+			if (sumStudent[i] > topGrades) {
+				topGrades = sumStudent[i];
+				Outstandingstudent = (byte) (i + 1);
+
+			}
+
+		}
+
+		byte studentfailed = sumStudent[0];
+		byte minGrades = sumStudent[0];
+		for (byte i = 0; i < sumStudent.length; i++) {
+			if (sumStudent[i] < minGrades) {
+				minGrades = sumStudent[i];
+				studentfailed = (byte) (i + 1);
+			}
+		}
+		byte temp =sumStudent[0];
+		byte sum =sumStudent[0];
+		for (byte i = 0; i < sumStudent.length; i++){
+			if (i!=0){
+				 temp =(byte) (sumStudent[i] + sumStudent[i-1]);
+	             sum =(byte) (temp+sumStudent[i]);			 
+			}
+			else {
+				 temp = sumStudent[i] ;
+			} 
+		}
+		
+		System.out.println("\nThe grade of all students is: " + sum );
+		//System.out.println("the student number #" + Outstandingstudent + "\n got the highest grade and it's:" + topGrades);
+		//System.out.println("the student number #" + studentfailed + "\n got the highest grade and it's:" + minGrades);
+	}
+}

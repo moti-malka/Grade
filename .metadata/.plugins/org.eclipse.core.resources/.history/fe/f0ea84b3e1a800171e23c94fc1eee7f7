@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
+public class GradesCalculator {
+
+	public static void main(String[] args) {
+		// set Scanner for get input from user
+		Scanner inputFromUser = new Scanner(System.in);
+		
+		// ask user for numbers of students
+		System.out.print("Enter the number of students: ");
+
+		byte allStudents = inputFromUser.nextByte();
+
+		byte[] sumStudent = new byte[allStudents];
+		byte Location = 1;
+		for (byte i = 0; i < sumStudent.length; i++) {
+
+			System.out.print("Enter Grades for student #" + Location++ + ": ");
+
+			byte Grades = inputFromUser.nextByte();
+
+			if (Grades < 0 || Grades > 100) {
+				System.out.print("Errot: Enter a range of numbers between 0-120'\n'");
+				sumStudent[i] = (byte) (i - 1);
+			} else {
+				sumStudent[i] = Grades;
+
+			}
+
+		}
+		byte po =  sumStudent[0];
+		byte max = sumStudent[0];
+		for (byte i = 0; i < sumStudent.length; i++) {
+			if (sumStudent[i]>max ) {
+				max =sumStudent[i];
+			      po = i;
+
+			}
+
+		}
+		System.out.println("max : "+ po +max);
+	}
+}

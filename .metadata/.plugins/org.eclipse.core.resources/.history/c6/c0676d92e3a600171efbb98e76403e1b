@@ -1,0 +1,99 @@
+import java.util.Scanner;
+import java.util.jar.Attributes.Name;
+
+
+public class taxbracket
+{
+   
+	// Main Func
+	public static void main(String[] args) 
+   
+   {
+		// Call To Func Scanner 
+		Scanner inputfromuser = new Scanner(System.in);
+		
+		//ask user what is Name
+		System.out.print("Enter Your Name please: ");
+		String name = inputfromuser.next();
+		
+		//ask User what is Salary 
+		System.out.print("Enter Salary: ");   
+		int salary = inputfromuser.nextInt();
+        
+		// close metod Scanner
+		inputfromuser.close();
+        
+		//call to Func to Check Tax 
+		CheckTax(salary, name);
+   }  
+   
+	
+   public static void CheckTax(int salary, String name)
+   {
+	
+	// Get Salary From User    
+	int taxbracket1 = 23000;
+	int taxbracket2 = 46000;
+	int taxbracket3 = 120000;
+	int taxbracket4 = 220000;
+	
+	// Check If Salary Big or Equal To Tax bracket 1  
+	
+	// 0-23
+	if (salary <= taxbracket1 && salary > 0)
+	{
+		int TaxToPay = salary * 10 / 100;
+		
+		print(salary, TaxToPay, name);
+	}
+	
+	// 23-46
+	else if (salary <= taxbracket2 && salary > 0)
+	{
+		int Temp = salary - taxbracket1;
+		int TaxToPay = Temp * 20/100 + 2300;
+		print(salary, TaxToPay, name);
+	}
+    
+	//46-120000
+	else if (salary <= taxbracket3 && salary > 0)
+	{
+		int temp1 = salary - taxbracket2;
+		int TaxToPay = temp1 * 30/100 + 6900;
+		print(salary, TaxToPay, name);
+	}
+	
+	//120000-220000
+	else if (salary <= taxbracket4 && salary > 0)
+	{
+		
+		int Temp = salary - taxbracket3;
+		int TaxToPay = Temp * 40/100 + 29100;
+		print(salary, TaxToPay, name);
+	}
+	//220000-n
+	else if (salary > taxbracket4 && salary > 0)
+	{
+		int Temp = salary - taxbracket4;
+		int TaxToPay = Temp *50/100 + 69100;
+		print(salary, TaxToPay, name);
+	}
+	
+	 
+	else if (salary < 0)
+	{
+		System.out.println("yuor salary = -/0");
+	}
+	 
+}
+   
+   
+   public static void print(int salary, int tax, String moti)
+	{
+	   System.out.print("\b\b\b\b\b");
+		System.out.print("Hello " + moti + " Your Salary is: " + salary + 
+				"\n And The tax you have to pay is: " + tax);
+	}
+  
+
+}

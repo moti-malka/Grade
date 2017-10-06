@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class taxbracket
+{
+   public static void main(String[] args) {
+   
+	   
+	   
+	Scanner inputfromuser = new Scanner(System.in);
+	
+	System.out.print("Enter Salary: ");
+	
+	int salary = inputfromuser.nextInt();
+    int onerank = 2300;
+    int towrank = 10200;
+	int taxbracket1 = 23000;
+	int taxbracket2 = 74000;
+	int taxbracket3 = 100000; 
+	
+	
+	
+	if (salary <= taxbracket1)
+	{
+		int taxpayable = salary * 10 / 100;
+		
+		System.out.print(taxpayable);
+	}
+    
+	else if (salary >= taxbracket1 && salary <= taxbracket2) 
+	{
+		int taxpayable = salary - taxbracket1;
+		int taxfinishtopay = onerank + taxpayable * 20/100;
+		System.out.println(taxfinishtopay);
+		
+	}
+	
+	else if (salary >= taxbracket2 && salary <= taxbracket3)
+	{
+		int taxpayable = salary - taxbracket2;
+		int taxtopay = taxpayable * 30 /100;
+		int taxfinishtopay = taxtopay + onerank + towrank;
+		System.out.println(taxfinishtopay);
+	}
+	
+	
+	
+	
+	inputfromuser.close();
+  }
+
+}
